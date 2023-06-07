@@ -1,7 +1,7 @@
 ---
 title: "Git & Github"
 layout: archive
-permalink: /git-and-github
+permalink: /Git-and-Github
 ---
 
 

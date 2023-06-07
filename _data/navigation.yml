@@ -14,8 +14,8 @@ docs:
         url: /python
         category: "Python"
       - title: "Git & Github"
-        url: /git-and-github
-        category: "git-and-github"
+        url: /Git-and-Github
+        category: "Git-and-Github"
   - title: "프로젝트 및 대회"
     children:
       - title: "Project"
