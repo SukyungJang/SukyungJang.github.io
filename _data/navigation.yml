@@ -22,8 +22,8 @@ docs:
         url: /project
         category: "project"
       - title: "Mini Project"
-        url: /miniproject
-        category: "mini-project"
+        url: /Mini-Project
+        category: "Mini-Project"
       - title: "Kaggle"
         url: /kaggle
         category: "kaggle"
