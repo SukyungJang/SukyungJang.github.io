@@ -2,7 +2,7 @@
 layout: single
 title:  "깃허브 Git Push 오류 해결 (unable to access)"
 categories: Git-and-Github
-tags: [git, github, error]
+tags: [git, github, Error]
 author_profile: false
 toc: true
 toc_sticky: true
