@@ -11,7 +11,7 @@ docs:
   - title: "공부"
     children:
       - title: "Python"
-        url: /python
+        url: /Python
         category: "Python"
       - title: "Git & Github"
         url: /Git-and-Github
