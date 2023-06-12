@@ -1,7 +1,7 @@
 ---
 title: "Mini Project"
 layout: archive
-permalink: /Mini-project
+permalink: /Mini-Project
 ---
 
 
