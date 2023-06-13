@@ -232,3 +232,6 @@ probability_model(x_test[:5])
           dtype=float32)>
 
 
+
+<https://www.tensorflow.org/tutorials/quickstart/beginner?hl=ko> <br/>
+해당 사이트로 공부하였습니다.

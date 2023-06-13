@@ -1,6 +1,6 @@
 ---
 layout: single
-title:  "TensorFlow 기본 이미지 분류"
+title:  "TensorFlow 기본 이미지 분류 "
 categories: ML-and-DL
 tags: [python, tensorflow, ML, DL]
 author_profile: false
@@ -8,9 +8,6 @@ toc: true
 toc_sticky: true
 toc_label: 목차
 ---
-
-<https://www.tensorflow.org/tutorials/keras/classification?hl=ko>
-해당 사이트로 공부하였습니다.
 
 ```python
 # TensorFlow and tf.keras
@@ -115,7 +112,7 @@ plt.show()
 
 
     
-![png](output_11_0.png)
+![2023-06-13-tensorflow-기본이미지분류_11_0](https://github.com/SukyungJang/study/assets/133842344/55a32380-8fd9-4b4c-8100-19987e65a06b)
     
 
 
@@ -141,7 +138,7 @@ plt.show()
 
 
     
-![png](output_13_0.png)
+![2023-06-13-tensorflow-기본이미지분류_13_0](https://github.com/SukyungJang/study/assets/133842344/ff738981-010e-499c-9eff-4e23f699b952)
     
 
 
@@ -349,7 +346,7 @@ plt.show()
 
 
     
-![png](output_38_0.png)
+![2023-06-13-tensorflow-기본이미지분류_38_0](https://github.com/SukyungJang/study/assets/133842344/66b234f8-2556-44c8-8c38-6347ac9a44ba)
     
 
 
@@ -366,7 +363,7 @@ plt.show()
 
 
     
-![png](output_39_0.png)
+![2023-06-13-tensorflow-기본이미지분류_39_0](https://github.com/SukyungJang/study/assets/133842344/5923b941-dd1a-4a8e-8a6e-8b56db0cfaa9)
     
 
 
@@ -387,7 +384,7 @@ plt.show()
 
 
     
-![png](output_40_0.png)
+![2023-06-13-tensorflow-기본이미지분류_40_0](https://github.com/SukyungJang/study/assets/133842344/2d8aa0ba-e39a-4123-9786-6c2041645ca4)
     
 
 
@@ -437,7 +434,7 @@ plt.show()
 
 
     
-![png](output_46_0.png)
+![2023-06-13-tensorflow-기본이미지분류_46_0](https://github.com/SukyungJang/study/assets/133842344/893123dc-b028-4707-99e2-285dd9947130)
     
 
 
@@ -452,3 +449,6 @@ np.argmax(predictions_single[0])
     2
 
 
+
+<https://www.tensorflow.org/tutorials/keras/classification?hl=ko> <br/>
+해당 사이트로 공부하였습니다.
