@@ -102,7 +102,7 @@ tf.nn.softmax(predictions).numpy()
 
 
 
-tf.nn.softmax(predictions)는 'predictions' 배열에 softmax 함수를 적용하는 TensorFlow의 함수입니다. softmax 함수는 각 원소의 값을 0과 1사이로 정규화하고, 이 값들의 합이 1이 되도록 만들어 확률 분포로 변환합니다.
+**tf.nn.softmax(predictions)**는 'predictions' 배열에 softmax 함수를 적용하는 TensorFlow의 함수입니다. softmax 함수는 각 원소의 값을 0과 1사이로 정규화하고, 이 값들의 합이 1이 되도록 만들어 확률 분포로 변환합니다.
 
 
 ```python
@@ -110,9 +110,9 @@ tf.nn.softmax(predictions)는 'predictions' 배열에 softmax 함수를 적용�
 loss_fn = tf.keras.losses.SparseCategoricalCrossentropy(from_logits = True)
 ```
 
-tf.keras.losses.SparseCategoricalCrossentropy는 다중 클래스 분류 문제에 사용되는 손실 함수입니다. 이 함수는 실제 정수 형태로 레이블된 클래스와 모델의 예측값 사이의 차이를 계산하여 손실을 측정합니다. 이 손실 함수는 클래스 인덱스를 인코딩할 필요 없이 정수 형태의 레이블을 바로 처리할 수 있습니다. <br/>
+**tf.keras.losses.SparseCategoricalCrossentropy**는 다중 클래스 분류 문제에 사용되는 손실 함수입니다. 이 함수는 실제 정수 형태로 레이블된 클래스와 모델의 예측값 사이의 차이를 계산하여 손실을 측정합니다. 이 손실 함수는 클래스 인덱스를 인코딩할 필요 없이 정수 형태의 레이블을 바로 처리할 수 있습니다. <br/>
 <br/>
-from_logits = True는 모델의 출력값이 확률 분포로 정규화되지 않은 'logits'형태인 경우에 사용됩니다. 'logtis'는 확률을 나타내기 전에 softmax 함수를 거치지 않은 모델의 출력값을 의미합니다. 따라서 이렇게 설정하면 손실 함수 내부에서 softmax 함수를 적용하여 확률 분포로 변환하는 과정이 수행됩니다.
+**from_logits = True**는 모델의 출력값이 확률 분포로 정규화되지 않은 'logits'형태인 경우에 사용됩니다. 'logtis'는 확률을 나타내기 전에 softmax 함수를 거치지 않은 모델의 출력값을 의미합니다. 따라서 이렇게 설정하면 손실 함수 내부에서 softmax 함수를 적용하여 확률 분포로 변환하는 과정이 수행됩니다.
 
 
 ```python
