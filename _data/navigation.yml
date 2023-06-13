@@ -16,6 +16,9 @@ docs:
       - title: "Git & Github"
         url: /Git-and-Github
         category: "Git-and-Github"
+      - title: "ML & DL"
+        url: /ML-and-DL
+        category: "ML-and-DL"
   - title: "프로젝트 및 대회"
     children:
       - title: "Project"
