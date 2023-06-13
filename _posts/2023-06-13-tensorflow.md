@@ -1,6 +1,6 @@
 ---
 layout: single
-title:  "텐서플로 튜토리얼 초보자"
+title:  "TensorFlow 초보자용 튜토리얼"
 categories: ML-and-DL
 tags: [python, tensorflow, ML, DL]
 author_profile: false
@@ -10,6 +10,7 @@ toc_label: 목차
 ---
 
 # 1. TensorFlow 설정하기
+
 
 ```python
 import tensorflow as tf
@@ -101,7 +102,130 @@ tf.nn.softmax(predictions).numpy()
 
 
 
+tf.nn.softmax(predictions)는 'predictions' 배열에 softmax 함수를 적용하는 TensorFlow의 함수입니다. softmax 함수는 각 원소의 값을 0과 1사이로 정규화하고, 이 값들의 합이 1이 되도록 만들어 확률 분포로 변환합니다.
+
 
 ```python
-
+# 로짓의 벡터와 True 인덱스 사용 각 예시에 대해 스칼라 손실을 반환하는 훈련용 손실 함수 정의
+loss_fn = tf.keras.losses.SparseCategoricalCrossentropy(from_logits = True)
 ```
+
+tf.keras.losses.SparseCategoricalCrossentropy는 다중 클래스 분류 문제에 사용되는 손실 함수입니다. 이 함수는 실제 정수 형태로 레이블된 클래스와 모델의 예측값 사이의 차이를 계산하여 손실을 측정합니다. 이 손실 함수는 클래스 인덱스를 인코딩할 필요 없이 정수 형태의 레이블을 바로 처리할 수 있습니다. <br/>
+<br/>
+from_logits = True는 모델의 출력값이 확률 분포로 정규화되지 않은 'logits'형태인 경우에 사용됩니다. 'logtis'는 확률을 나타내기 전에 softmax 함수를 거치지 않은 모델의 출력값을 의미합니다. 따라서 이렇게 설정하면 손실 함수 내부에서 softmax 함수를 적용하여 확률 분포로 변환하는 과정이 수행됩니다.
+
+
+```python
+# 첫 번째 이미지 손실 값 계산
+loss_fn(y_train[:1], predictions).numpy()
+```
+
+
+
+
+    2.188509
+
+
+
+
+```python
+model.compile(optimizer = 'adam',
+              loss = loss_fn,
+              metrics = ['accuracy'])
+```
+
+# 4. 모델 훈련 및 평가하기
+
+
+```python
+model.fit(x_train, y_train, epochs= 5) # 5번 반복하여 모델 학습
+```
+
+    Epoch 1/5
+    
+
+    c:\Users\YONSAI\anaconda4\lib\site-packages\keras\backend.py:5612: UserWarning: "`sparse_categorical_crossentropy` received `from_logits=True`, but the `output` argument was produced by a Softmax activation and thus does not represent logits. Was this intended?
+      output, from_logits = _get_logits(
+    
+
+    1875/1875 [==============================] - 5s 3ms/step - loss: 0.2945 - accuracy: 0.9138
+    Epoch 2/5
+    1875/1875 [==============================] - 4s 2ms/step - loss: 0.1413 - accuracy: 0.9574
+    Epoch 3/5
+    1875/1875 [==============================] - 5s 3ms/step - loss: 0.1071 - accuracy: 0.9674
+    Epoch 4/5
+    1875/1875 [==============================] - 5s 3ms/step - loss: 0.0887 - accuracy: 0.9725
+    Epoch 5/5
+    1875/1875 [==============================] - 5s 3ms/step - loss: 0.0749 - accuracy: 0.9757
+    
+
+
+
+
+    <keras.callbacks.History at 0x1ac63ce6fa0>
+
+
+
+
+```python
+model.fit(x_train, y_train, epochs = 5)
+model.evaluate(x_test, y_test, verbose = 2) # verbose: 평가 과정의 상세도를 조절하는 매개변수
+```
+
+    Epoch 1/5
+    1875/1875 [==============================] - 4s 2ms/step - loss: 0.0663 - accuracy: 0.9786
+    Epoch 2/5
+    1875/1875 [==============================] - 4s 2ms/step - loss: 0.0581 - accuracy: 0.9816
+    Epoch 3/5
+    1875/1875 [==============================] - 4s 2ms/step - loss: 0.0531 - accuracy: 0.9831
+    Epoch 4/5
+    1875/1875 [==============================] - 5s 2ms/step - loss: 0.0490 - accuracy: 0.9832
+    Epoch 5/5
+    1875/1875 [==============================] - 4s 2ms/step - loss: 0.0443 - accuracy: 0.9857
+    
+
+    c:\Users\YONSAI\anaconda4\lib\site-packages\keras\backend.py:5612: UserWarning: "`sparse_categorical_crossentropy` received `from_logits=True`, but the `output` argument was produced by a Softmax activation and thus does not represent logits. Was this intended?
+      output, from_logits = _get_logits(
+    
+
+    313/313 - 1s - loss: 0.0695 - accuracy: 0.9790 - 504ms/epoch - 2ms/step
+    
+
+
+
+
+    [0.06954585015773773, 0.9789999723434448]
+
+
+
+
+```python
+# 기존 모델에 소프트맥스 함수를 적용하여 확률 출력하는 새로운 모델
+probability_model = tf.keras.Sequential([
+    model,
+    tf.keras.layers.Softmax()
+])
+```
+
+
+```python
+probability_model(x_test[:5])
+```
+
+
+
+
+    <tf.Tensor: shape=(5, 10), dtype=float32, numpy=
+    array([[0.08533742, 0.08533742, 0.08533742, 0.08534161, 0.08533742,
+            0.08533742, 0.08533742, 0.23195864, 0.08533742, 0.08533781],
+           [0.08533704, 0.08533896, 0.23196459, 0.08533712, 0.08533704,
+            0.08533706, 0.08533704, 0.08533704, 0.08533704, 0.08533704],
+           [0.08533964, 0.23192368, 0.08534087, 0.08533964, 0.08533993,
+            0.08533964, 0.08533966, 0.08535735, 0.08534005, 0.08533964],
+           [0.23194201, 0.08533847, 0.08533958, 0.08533847, 0.08534563,
+            0.0853387 , 0.08533931, 0.08534022, 0.08533847, 0.08533912],
+           [0.08537383, 0.08537382, 0.08537399, 0.08537382, 0.23138164,
+            0.08537382, 0.08537382, 0.08537462, 0.08537383, 0.08562685]],
+          dtype=float32)>
+
+
