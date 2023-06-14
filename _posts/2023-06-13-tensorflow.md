@@ -9,8 +9,6 @@ toc_sticky: true
 toc_label: 목차
 ---
 
-<https://www.tensorflow.org/tutorials/quickstart/beginner?hl=ko>
-해당 사이트로 공부하였습니다.
 
 # 1. TensorFlow 설정하기
 
