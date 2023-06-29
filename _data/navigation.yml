@@ -30,3 +30,8 @@ docs:
       - title: "Kaggle"
         url: /Kaggle
         category: "Kaggle"
+  - title: "나"
+    children:
+      - title: "Portfolio"
+        url: /Portfolio
+        category: "Portfolio"
